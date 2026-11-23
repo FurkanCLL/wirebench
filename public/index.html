@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-mode="studio">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Wirebench - Luminous Circuit Atelier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body>
+  <!-- =======================================================================
+       STORYBOOK WELCOME COVER - Sunlit Parchment & Illustrated Miniature Circuit
+       ======================================================================= -->
+  <div id="welcome-overlay" class="welcome-overlay open" role="dialog" aria-modal="true" aria-label="Wirebench Welcome">
+    <div class="welcome-top-bar">
+      <div class="welcome-prefs" role="group" aria-label="Language and Atmosphere">
+        <div class="pref-seg" role="group" aria-label="Language">
+          <button type="button" class="pref-pill active" data-set-lang="en">EN</button>
+          <button type="button" class="pref-pill" data-set-lang="tr">TR</button>
+        </div>
+        <span class="pref-dot" aria-hidden="true"></span>
+        <div class="pref-seg" role="group" aria-label="Theme">
+          <button type="button" class="pref-pill active" data-set-theme="light" data-i18n="settings.daylight">Daylight</button>
+          <button type="button" class="pref-pill" data-set-theme="dark" data-i18n="settings.starlight">Starlight</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="welcome-stage">
+      <!-- Handcrafted Storybook Illustrated Circuit Vignette -->
+      <div class="welcome-vignette-wrap" aria-hidden="true">
+        <svg class="welcome-vignette" viewBox="0 0 440 156" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Soft radiant firefly glow fading smoothly to its own RGB alpha 0 -->
+            <radialGradient id="vigBulbHalo" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#F5BC58" stop-opacity="0.58" />
+              <stop offset="42%" stop-color="#E87255" stop-opacity="0.26" />
+              <stop offset="100%" stop-color="#E87255" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="vigBulbGlass" cx="38%" cy="32%" r="65%">
+              <stop offset="0%" stop-color="#FFE6A8" />
+              <stop offset="48%" stop-color="#EE7256" />
+              <stop offset="100%" stop-color="#BA3E2A" />
+            </radialGradient>
+            <linearGradient id="vigBatteryBody" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#256B52" />
+              <stop offset="32%" stop-color="#388E6E" />
+              <stop offset="76%" stop-color="#286E54" />
+              <stop offset="100%" stop-color="#1E5440" />
+            </linearGradient>
+            <linearGradient id="vigBrass" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#C98727" />
+              <stop offset="45%" stop-color="#F6CB72" />
+              <stop offset="100%" stop-color="#B9751F" />
+            </linearGradient>
+            <linearGradient id="vigPorcelain" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#FFFDF7" />
+              <stop offset="55%" stop-color="#F2E4CB" />
+              <stop offset="100%" stop-color="#DEC8A4" />
+            </linearGradient>
+            <filter id="vigSoftShadow" x="-15%" y="-15%" width="130%" height="145%">
+              <feDropShadow dx="0" dy="5" stdDeviation="4.5" flood-color="#4A321C" flood-opacity="0.16" />
+            </filter>
+          </defs>
+
+          <!-- Soft warm tabletop paper shadow under circuit loop -->
+          <ellipse cx="220" cy="134" rx="162" ry="11" fill="var(--vig-shadow)" />
+
+          <!-- Braided warm copper circuit loop -->
+          <path d="M98 44 C98 34, 108 32, 126 32 H316 C334 32, 344 40, 344 56 V100 C344 114, 334 120, 316 120 H126 C108 120, 98 114, 98 102 Z"
+                stroke="#B86B43" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M98 44 C98 34, 108 32, 126 32 H316 C334 32, 344 40, 344 56 V100 C344 114, 334 120, 316 120 H126 C108 120, 98 114, 98 102 Z"
+                stroke="#E5A272" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="14 9" opacity="0.65" />
+
+          <!-- Soft copper junction pearls -->
+          <circle cx="158" cy="32" r="3.4" fill="#E39D34" stroke="#8C4E2B" stroke-width="1.2" />
+          <circle cx="282" cy="32" r="3.4" fill="#E39D34" stroke="#8C4E2B" stroke-width="1.2" />
+
+          <!-- LEFT: Charming Forest-Sage & Brass Lantern Battery -->
+          <g filter="url(#vigSoftShadow)">
+            <!-- Bottom brass rim -->
+            <rect x="76" y="102" width="44" height="9" rx="4.5" fill="url(#vigBrass)" />
+            <!-- Cylindrical sage body -->
+            <rect x="76" y="48" width="44" height="58" rx="9" fill="url(#vigBatteryBody)" />
+            <!-- Cream craft band label -->
+            <rect x="76" y="66" width="44" height="22" fill="#FAF0DC" opacity="0.93" />
+            <!-- Subtle vertical gloss reflection -->
+            <rect x="83" y="51" width="5.5" height="52" rx="2.7" fill="#FFFFFF" opacity="0.22" />
+            <!-- Embossed + and - -->
+            <path d="M94 58h8M98 54v8" stroke="#FAF0DC" stroke-width="2" stroke-linecap="round" />
+            <path d="M94.5 96.5h7" stroke="#FAF0DC" stroke-width="2" stroke-linecap="round" opacity="0.85" />
+            <!-- Mini spark emblem on paper band -->
+            <path d="M99.5 71.5l-4.2 6h3.2l-1.2 5 4.4-6.2h-3.2l1-4.8z" fill="#D45D44" />
+            <!-- Brass top collar & button nub -->
+            <rect x="80" y="42" width="36" height="8" rx="3.5" fill="url(#vigBrass)" />
+            <rect x="90" y="36" width="16" height="7" rx="3" fill="url(#vigBrass)" />
+          </g>
+
+          <!-- TOP-CENTER: Handcrafted 4-Band Porcelain Axial Resistor -->
+          <g filter="url(#vigSoftShadow)">
+            <!-- Porcelain peanut body -->
+            <path d="M174 22 C179 18, 191 18, 197 21 H243 C249 18, 261 18, 266 22 C271 26, 271 38, 266 42 C261 46, 249 46, 243 43 H197 C191 46, 179 46, 174 42 C169 38, 169 26, 174 22 Z"
+                  fill="url(#vigPorcelain)" stroke="#BCA382" stroke-width="1.2" />
+            <!-- Authentic 4-band IEC color rings -->
+            <rect x="187" y="20.2" width="7.5" height="23.6" rx="2.2" fill="#D45D44" />
+            <rect x="203" y="21" width="7.5" height="22" rx="2" fill="#E39D34" />
+            <rect x="219" y="21" width="7.5" height="22" rx="2" fill="#2E7D60" />
+            <rect x="242" y="20.4" width="6.5" height="23.2" rx="2" fill="#C99235" />
+            <!-- Gloss porcelain specular -->
+            <path d="M180 25 H260" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" opacity="0.72" />
+          </g>
+
+          <!-- RIGHT: Radiant Crystal-Glass LED Bulb with Breathing Firefly Glow -->
+          <g class="vig-bulb-group">
+            <!-- Soft breathing radial halo -->
+            <circle class="vig-halo" cx="344" cy="70" r="54" fill="url(#vigBulbHalo)" />
+
+            <g filter="url(#vigSoftShadow)">
+              <!-- Warm brass base collar -->
+              <rect x="328" y="88" width="32" height="10" rx="4" fill="url(#vigBrass)" />
+              <rect x="333" y="96" width="22" height="6" rx="3" fill="#9E6222" />
+              <!-- Crystal domed LED jewel -->
+              <path d="M326 88 V67 C326 52, 334 44, 344 44 C354 44, 362 52, 362 67 V88 Z"
+                    fill="url(#vigBulbGlass)" stroke="#B63C29" stroke-width="1.1" />
+              <!-- Visible tiny inner filament anvil -->
+              <path d="M339 88 V73 L342 69 H347 L349 73 V88" stroke="#FFF1C2" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.88" />
+              <circle cx="344" cy="68" r="4.2" fill="#FFF8DC" opacity="0.92" />
+              <!-- Crisp white glass crescent specular -->
+              <path d="M333 67 C333 56, 338 51, 344 50" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" opacity="0.78" />
+              <circle cx="333.5" cy="74" r="1.6" fill="#FFFFFF" opacity="0.65" />
+            </g>
+
+            <!-- Dainty storybook sparkle stars around the lit bulb -->
+            <path class="vig-twinkle t1" d="M388 42 l2 5 5 2 -5 2 -2 5 -2-5 -5-2 5-2z" fill="#E39D34" />
+            <path class="vig-twinkle t2" d="M306 46 l1.4 3.4 3.4 1.4 -3.4 1.4 -1.4 3.4 -1.4-3.4 -3.4-1.4 3.4-1.4z" fill="#E39D34" />
+            <path class="vig-twinkle t3" d="M394 84 l1.2 2.8 2.8 1.2 -2.8 1.2 -1.2 2.8 -1.2-2.8 -2.8-1.2 2.8-1.2z" fill="#D45D44" />
+          </g>
+
+          <!-- Gently drifting golden firefly sparks along the warm circuit -->
+          <circle class="vig-spark s1" cx="140" cy="32" r="3.4" fill="#F5BC58" />
+          <circle class="vig-spark s2" cx="298" cy="32" r="3.2" fill="#F5BC58" />
+          <circle class="vig-spark s3" cx="272" cy="120" r="3.5" fill="#F5BC58" />
+          <circle class="vig-spark s4" cx="182" cy="120" r="3.1" fill="#F5BC58" />
+          <circle class="vig-spark s5" cx="220" cy="120" r="2.6" fill="#FFE8A3" />
+        </svg>
+      </div>
+
+      <div class="welcome-header">
+        <h1 class="welcome-title" data-i18n="welcome.headline">Wirebench</h1>
+        <p class="welcome-tagline" data-i18n="welcome.tagline">Warm, living circuits you can touch and understand.</p>
+      </div>
+
+      <div class="welcome-portals">
+        <!-- Portal 1: Storybook Guided Learn -->
+        <button id="choose-learn" type="button" class="portal-card">
+          <div class="portal-emblem" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="21" fill="var(--honey-soft)" />
+              <path d="M16.5 23.5a7.5 7.5 0 1 1 15 0c0 3-1.8 4.8-2.6 6.5h-9.8c-.8-1.7-2.6-3.5-2.6-6.5z" fill="#F5BC58" stroke="#B96F1E" stroke-width="1.6" stroke-linejoin="round" />
+              <path d="M21 20.5c0-2 1.3-3.4 3-3.6" stroke="#FFFDF8" stroke-width="2" stroke-linecap="round" />
+              <rect x="20" y="30" width="8" height="4.2" rx="2" fill="#D45D44" />
+              <path d="M24 9v2.6M12.5 14l2 1.8M35.5 14l-2 1.8" stroke="#D45D44" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="portal-copy">
+            <div class="portal-title-row">
+              <span class="portal-title" data-i18n="welcome.learn.title">Learn</span>
+            </div>
+            <p class="portal-desc" data-i18n="welcome.learn.desc">Six playful hands-on circuit stories.</p>
+          </div>
+          <div class="portal-foot">
+            <span class="portal-meta" data-i18n="welcome.learn.meta">6 Chapters</span>
+            <span class="portal-arrow" id="welcome-arrow-learn">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </span>
+          </div>
+        </button>
+
+        <!-- Portal 2: Freeform Studio Workbench -->
+        <button id="choose-studio" type="button" class="portal-card">
+          <div class="portal-emblem" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="21" fill="var(--sage-soft)" />
+              <!-- Vintage miniature brass dial & warm sine wave -->
+              <circle cx="24" cy="24" r="12.5" fill="var(--bg-surface)" stroke="#C98727" stroke-width="2.2" />
+              <path d="M15.5 24c2.1-5.5 4.2-5.5 6.3 0s4.2 5.5 6.3 0c1.1-2.8 2.1-3.8 3.4-3.8" stroke="#2E7D60" stroke-width="2.2" stroke-linecap="round" />
+              <circle cx="31.5" cy="20.2" r="2.3" fill="#D45D44" />
+            </svg>
+          </div>
+          <div class="portal-copy">
+            <div class="portal-title-row">
+              <span class="portal-title" data-i18n="welcome.studio.title">Studio</span>
+              <span id="welcome-resume-pill" class="resume-pill hidden">
+                <span class="resume-dot"></span>
+                <span data-i18n="welcome.resume">Saved</span>
+              </span>
+            </div>
+            <p class="portal-desc" data-i18n="welcome.studio.desc">Freeform 24-part workbench &amp; scope.</p>
+          </div>
+          <div class="portal-foot">
+            <span class="portal-meta" data-i18n="welcome.studio.meta">24 Parts · SPICE</span>
+            <span class="portal-arrow" id="welcome-arrow-studio">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       LUMINOUS ATELIER MAIN WORKBENCH SHELL
+       ======================================================================= -->
+  <div class="bench-shell">
+    <!-- FULL-BLEED SUNLIT PARCHMENT STAGE WITH FLOATING SCULPTED PILLS -->
+    <main class="canvas-stage" id="canvas-stage">
+      <canvas id="schematic-canvas"></canvas>
+
+      <!-- WHISPER-CLEAN FLOATING TOP STRIP (Zero rigid dividing wall!) -->
+      <header class="atelier-top">
+        <!-- LEFT CLUSTER: Brand + Learn/Studio Switch + Unified Circuits & Tabs -->
+        <div class="top-cluster top-left">
+          <button id="btn-home" type="button" class="brand-stamp" data-i18n-title="top.home">
+            <span class="brand-ember" aria-hidden="true"></span>
+            <span class="brand-word">Wirebench</span>
+          </button>
+
+          <nav class="mode-pill" role="tablist" aria-label="Mode">
+            <button id="mode-learn" type="button" class="mode-opt" data-mode="learn" data-i18n="mode.learn">Learn</button>
+            <button id="mode-studio" type="button" class="mode-opt active" data-mode="studio" data-i18n="mode.studio">Studio</button>
+          </nav>
+
+          <!-- Studio Unified Circuit & Tabs Selector (keeps top bar serene at any tab count!) -->
+          <div class="pop-wrap studio-only">
+            <button id="btn-circuits" type="button" class="circuit-trigger" data-i18n-title="top.circuits">
+              <span id="active-circuit-name" class="circuit-name">Astable Multivibrator</span>
+              <span id="tab-count-badge" class="tab-badge mono hidden">1</span>
+              <span class="circuit-chev" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5L8 10l3.5-3.5"/></svg>
+              </span>
+            </button>
+            <div id="circuits-popover" class="atelier-pop circuits-pop"></div>
+          </div>
+        </div>
+
+        <!-- CENTER CLUSTER: Studio Transport OR Learn 6-Chapter Stones -->
+        <div class="top-cluster top-center">
+          <div class="transport studio-only">
+            <button id="btn-play" type="button" class="stamp-ico play-btn running" data-i18n-title="top.play"></button>
+            <button id="btn-step" type="button" class="stamp-ico" data-i18n-title="top.step"></button>
+            <button id="btn-reset" type="button" class="stamp-ico" data-i18n-title="top.reset"></button>
+
+            <div class="pop-wrap">
+              <button id="btn-speed" type="button" class="top-pill-btn mono" data-i18n-title="top.speed">5 ms/s</button>
+              <div id="speed-popover" class="atelier-pop speed-pop">
+                <div class="pop-head">
+                  <span data-i18n="top.speedTitle">Time Pace</span>
+                  <span id="sim-speed-val" class="mono accent-txt">5 ms/s</span>
+                </div>
+                <input id="sim-speed" class="atelier-fader hw-fader" type="range" min="-4" max="0" step="0.04" value="-2.3" />
+                <div class="pop-ticks mono"><span>100µs/s</span><span>10ms/s</span><span>1s/s</span></div>
+              </div>
+            </div>
+
+            <span id="sim-clock" class="sim-clock mono hide-md">0.0 ms</span>
+          </div>
+
+          <div id="learn-stepper" class="chapter-stepper learn-only" role="navigation" aria-label="Chapters"></div>
+        </div>
+
+        <!-- RIGHT CLUSTER: Only 4 Breathable Controls (Parts, Scope, File, Settings) -->
+        <div class="top-cluster top-right">
+          <button id="btn-parts-toggle" type="button" class="top-pill-btn active studio-only" data-i18n="top.parts">Parts</button>
+          <button id="btn-scope-toggle" type="button" class="top-pill-btn" data-i18n="top.instruments">Scope</button>
+
+          <div class="pop-wrap studio-only">
+            <button id="btn-export" type="button" class="top-pill-btn" data-i18n="top.file">File</button>
+            <div id="export-popover" class="atelier-pop action-pop">
+              <button id="act-save-json" type="button" class="pop-row" data-i18n="menu.saveJson">Save Circuit (.json)</button>
+              <button id="act-load-json" type="button" class="pop-row" data-i18n="menu.openJson">Open Circuit (.json)</button>
+              <div class="pop-div"></div>
+              <button id="act-export-svg" type="button" class="pop-row" data-i18n="menu.exportSvg">Save Image (.svg)</button>
+              <button id="act-export-spice" type="button" class="pop-row" data-i18n="menu.exportSpice">Export SPICE (.cir)</button>
+              <button id="act-export-csv" type="button" class="pop-row" data-i18n="menu.exportCsv">Export Data (.csv)</button>
+              <div class="pop-div"></div>
+              <button id="act-clear" type="button" class="pop-row danger" data-i18n="menu.clearCanvas">Clear Workbench</button>
+            </div>
+          </div>
+
+          <div class="pop-wrap">
+            <button id="btn-settings" type="button" class="stamp-ico settings-trigger" data-i18n-title="top.settings" aria-label="Settings">
+              <span id="btn-settings-ico" class="ico-slot">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2.5 4h11M2.5 8h11M2.5 12h11"/><circle cx="5.5" cy="4" r="1.5" fill="var(--bg-surface)"/><circle cx="10.5" cy="8" r="1.5" fill="var(--bg-surface)"/><circle cx="6.5" cy="12" r="1.5" fill="var(--bg-surface)"/></svg>
+              </span>
+            </button>
+
+            <div id="settings-popover" class="atelier-pop settings-pop">
+              <div class="settings-title" data-i18n="settings.title">Atelier</div>
+
+              <!-- Language Switcher -->
+              <div class="settings-block">
+                <span class="settings-lbl" data-i18n="settings.language">Language</span>
+                <div class="settings-seg">
+                  <button type="button" class="seg-opt active" data-set-lang="en">EN</button>
+                  <button type="button" class="seg-opt" data-set-lang="tr">TR</button>
+                </div>
+              </div>
+
+              <!-- Atmosphere Switcher -->
+              <div class="settings-block">
+                <span class="settings-lbl" data-i18n="settings.theme">Atmosphere</span>
+                <div class="settings-seg">
+                  <button type="button" class="seg-opt active" data-set-theme="light" data-i18n="settings.daylight">Daylight</button>
+                  <button type="button" class="seg-opt" data-set-theme="dark" data-i18n="settings.starlight">Starlight</button>
+                </div>
+              </div>
+
+              <div class="pop-div"></div>
+
+              <!-- Render Style & Visual Overlays -->
+              <button type="button" class="pop-row" data-toggle="style">
+                <span data-i18n="settings.style">Component Style</span>
+                <span class="state-chip on" id="chip-style" data-i18n="settings.illustrated">Illustrated</span>
+              </button>
+              <button type="button" class="pop-row" data-toggle="flow">
+                <span data-i18n="menu.currentFlow">Current Sparks</span>
+                <span class="state-chip mono on" id="chip-flow">ON</span>
+              </button>
+              <button type="button" class="pop-row" data-toggle="voltage">
+                <span data-i18n="menu.voltageHeat">Voltage Colors</span>
+                <span class="state-chip mono on" id="chip-voltage">ON</span>
+              </button>
+              <button type="button" class="pop-row" data-toggle="grid">
+                <span data-i18n="menu.grid">Guide Dots</span>
+                <span class="state-chip mono on" id="chip-grid">ON</span>
+              </button>
+              <button type="button" class="pop-row" data-toggle="audio">
+                <span data-i18n="menu.audio">Audio CH1</span>
+                <span class="state-chip mono" id="chip-audio">OFF</span>
+              </button>
+
+              <div class="pop-div"></div>
+
+              <button id="act-shortcuts" type="button" class="pop-row">
+                <span data-i18n="settings.shortcuts">Shortcuts</span>
+                <kbd>?</kbd>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- STUDIO AIRY FLOATING ILLUSTRATED PARTS TRAY (Zero 1px table gridlines!) -->
+      <aside id="parts-panel" class="parts-tray studio-only open" aria-label="Parts">
+        <div class="parts-search">
+          <span class="parts-search-ico" id="parts-search-ico"></span>
+          <input id="parts-search" type="text" class="parts-input" data-i18n-placeholder="parts.search" placeholder="Find a part…" autocomplete="off" spellcheck="false" />
+        </div>
+        <div id="parts-cats" class="parts-cats"></div>
+        <div id="parts-grid" class="parts-grid"></div>
+        <div class="parts-foot" data-i18n="parts.tip">Click or drag · R to turn</div>
+      </aside>
+
+      <!-- STUDIO CONTEXTUAL RIGHT PAPER INSPECTOR (Hidden until 1 item selected) -->
+      <aside id="inspector-card" class="inspector-paper studio-only" aria-label="Inspector"></aside>
+
+      <!-- STUDIO FLOATING BOTTOM TACTILE TOOL PILL -->
+      <div id="tool-dock" class="tool-dock studio-only" role="toolbar" aria-label="Tools">
+        <button type="button" class="dock-btn cad-btn active" data-tool="select">
+          <span class="dock-ico" id="dock-ico-select"></span>
+          <span class="dock-lbl" data-i18n="tool.select">Select</span>
+        </button>
+        <button type="button" class="dock-btn cad-btn" data-tool="wire">
+          <span class="dock-ico" id="dock-ico-wire"></span>
+          <span class="dock-lbl" data-i18n="tool.wire">Wire</span>
+        </button>
+        <button type="button" class="dock-btn cad-btn" data-tool="place:probe">
+          <span class="dock-ico" id="dock-ico-probe"></span>
+          <span class="dock-lbl" data-i18n="tool.probe">Probe</span>
+        </button>
+        <button type="button" class="dock-btn cad-btn" data-tool="delete">
+          <span class="dock-ico" id="dock-ico-cut"></span>
+          <span class="dock-lbl" data-i18n="tool.cut">Erase</span>
+        </button>
+        <span class="dock-gap" aria-hidden="true"></span>
+        <button id="btn-undo" type="button" class="stamp-ico xs" data-i18n-title="tool.undo" disabled></button>
+        <button id="btn-redo" type="button" class="stamp-ico xs" data-i18n-title="tool.redo" disabled></button>
+        <button id="btn-fit" type="button" class="stamp-ico xs" data-i18n-title="tool.fit"></button>
+        <span class="dock-gap" aria-hidden="true"></span>
+        <button id="btn-cmd" type="button" class="dock-cmd mono" data-i18n-title="top.cmd">⌘K</button>
+      </div>
+
+      <!-- LEARN MODE: SINGLE FLOATING STORYBOOK RIBBON AT BOTTOM-CENTER -->
+      <section id="learn-bar" class="learn-ribbon learn-only" aria-label="Interactive Lab Controls"></section>
+
+      <!-- LEARN QUIET PLAY / CENTER PILL (Bottom-Left) -->
+      <div class="learn-corner learn-only">
+        <button id="btn-learn-play" type="button" class="stamp-ico xs play-btn running" data-i18n-title="top.play"></button>
+        <button id="btn-learn-fit" type="button" class="stamp-ico xs" data-i18n-title="tool.fit"></button>
+      </div>
+
+      <!-- QUIET FLOATING HOVER TELEMETRY, WARNING & TOAST -->
+      <div id="hud-probe" class="hud-probe mono hidden"></div>
+      <div id="hud-diag" class="hud-diag hidden"></div>
+      <div id="toast-pill" class="toast-pill hidden"></div>
+    </main>
+
+    <!-- COLLAPSIBLE WARM INSTRUMENT SHELF (Scope, Bode, Nodes, SPICE - Closed by Default) -->
+    <section id="instrument-drawer" class="inst-shelf hidden" aria-label="Instruments">
+      <div id="drawer-resizer" class="shelf-resizer" title="Drag to resize">
+        <span class="resizer-grip" aria-hidden="true"></span>
+      </div>
+      <div class="inst-head">
+        <div class="inst-tabs" role="tablist">
+          <button type="button" class="itab active" data-inst="scope" data-i18n="inst.scope">Scope</button>
+          <button type="button" class="itab studio-only" data-inst="bode" data-i18n="inst.bode">Bode</button>
+          <button type="button" class="itab studio-only" data-inst="nodes" data-i18n="inst.nodes">Nodes</button>
+          <button type="button" class="itab studio-only" data-inst="spice" data-i18n="inst.spice">SPICE</button>
+        </div>
+
+        <div class="inst-ctrls active" data-inst-ctrl="scope">
+          <div id="scope-stats" class="scope-stats mono"></div>
+          <div class="ctrl-row">
+            <button id="scope-time-cycle" type="button" class="hw-btn mono">1 ms/div</button>
+            <button id="scope-volt-cycle" type="button" class="hw-btn mono">2 V/div</button>
+            <button id="scope-auto" type="button" class="hw-btn" data-i18n="inst.auto">Auto</button>
+            <button id="scope-xy" type="button" class="hw-btn mono">X-Y</button>
+            <button id="scope-hold" type="button" class="hw-btn">Hold</button>
+          </div>
+        </div>
+
+        <div class="inst-ctrls" data-inst-ctrl="bode">
+          <div id="bode-summary" class="inst-summary mono"></div>
+          <div class="ctrl-row">
+            <button id="bode-range-btn" type="button" class="hw-btn mono">10 Hz – 100 kHz</button>
+            <button id="bode-run" type="button" class="hw-btn primary" data-i18n="inst.sweep">Sweep</button>
+          </div>
+        </div>
+
+        <div class="inst-ctrls" data-inst-ctrl="nodes">
+          <div id="solver-summary" class="inst-summary mono"></div>
+        </div>
+
+        <div class="inst-ctrls" data-inst-ctrl="spice">
+          <div class="spacer"></div>
+          <div class="ctrl-row">
+            <button id="btn-copy-spice" type="button" class="hw-btn" data-i18n="inst.copy">Copy</button>
+          </div>
+        </div>
+
+        <button id="btn-drawer-close" type="button" class="stamp-ico xs" data-i18n-title="inst.collapse"></button>
+      </div>
+
+      <div class="inst-body">
+        <div class="inst-pane active" data-pane="scope">
+          <canvas id="scope-canvas"></canvas>
+        </div>
+        <div class="inst-pane" data-pane="bode">
+          <canvas id="bode-canvas"></canvas>
+        </div>
+        <div class="inst-pane nodes-pane" data-pane="nodes">
+          <div id="nodes-grid" class="nodes-grid"></div>
+        </div>
+        <div class="inst-pane spice-pane" data-pane="spice">
+          <pre id="spice-deck-code" class="spice-code mono"></pre>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- WARM PAPER QUICK COMMAND SHEET (Ctrl+K) -->
+  <div id="cmd-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Quick Search">
+    <div class="cmd-sheet">
+      <div class="cmd-top">
+        <span id="cmd-search-icon" class="cmd-ico"></span>
+        <input id="cmd-input" class="cmd-input" type="text" data-i18n-placeholder="cmd.placeholder" placeholder="Search a part, circuit, or chapter…" autocomplete="off" spellcheck="false" />
+        <kbd>ESC</kbd>
+      </div>
+      <div id="cmd-results" class="cmd-results"></div>
+    </div>
+  </div>
+
+  <!-- WARM PAPER SHORTCUTS SHEET (?) -->
+  <div id="help-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Atelier Shortcuts">
+    <div class="help-sheet">
+      <div class="help-head">
+        <span class="help-title" data-i18n="help.title">Atelier Shortcuts</span>
+        <button id="btn-help-close" type="button" class="stamp-ico xs"></button>
+      </div>
+      <div class="help-grid">
+        <div>
+          <div class="help-cat" data-i18n="help.tools">Tools</div>
+          <div class="hk-row"><span>Select / Wire / Erase</span><span><kbd>V</kbd> <kbd>W</kbd> <kbd>X</kbd></span></div>
+          <div class="hk-row"><span>R / C / L</span><span><kbd>R</kbd> <kbd>C</kbd> <kbd>L</kbd></span></div>
+          <div class="hk-row"><span>Power / GND / Probe</span><span><kbd>S</kbd> <kbd>G</kbd> <kbd>P</kbd></span></div>
+          <div class="hk-row"><span>Search / Parts Tray</span><span><kbd>⌘K</kbd> <kbd>B</kbd></span></div>
+        </div>
+        <div>
+          <div class="help-cat" data-i18n="help.edit">Craft &amp; Sim</div>
+          <div class="hk-row"><span>Turn / Mirror</span><span><kbd>R</kbd> <kbd>F</kbd></span></div>
+          <div class="hk-row"><span>Undo / Redo</span><span><kbd>⌘Z</kbd> <kbd>⌘Y</kbd></span></div>
+          <div class="hk-row"><span>Duplicate / Remove</span><span><kbd>⌘D</kbd> <kbd>Del</kbd></span></div>
+          <div class="hk-row"><span>Play / Center</span><span><kbd>Space</kbd> <kbd>0</kbd></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <input id="file-json-input" type="file" accept=".json,application/json" style="display:none" />
+  <script type="module" src="/src/ui/app.js"></script>
+</body>
+</html>

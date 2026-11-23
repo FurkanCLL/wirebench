@@ -1,0 +1,30 @@
+{
+  "name": "wirebench",
+  "version": "2.0.0",
+  "description": "Interactive analog, MOSFET & digital circuit simulator with Guided Learn Mode, full SPICE Studio IDE, oscilloscope, Bode analyzer, and headless CLI.",
+  "type": "module",
+  "bin": {
+    "wirebench": "cli/wirebench.mjs"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "cli": "node cli/wirebench.mjs",
+    "build": "node scripts/build-standalone.mjs"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "electronics",
+    "circuit-simulator",
+    "spice",
+    "mna",
+    "oscilloscope",
+    "bode-plot",
+    "mosfet",
+    "digital-logic",
+    "education"
+  ],
+  "license": "MIT"
+}

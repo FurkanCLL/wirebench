@@ -1,0 +1,58 @@
+/**
+ * Warm Rounded-Stroke 16x16 SVG UI Icon Library for Wirebench (Luminous Atelier).
+ * Replaces Unicode emojis with cohesive, soft-cap handcrafted line icons.
+ */
+
+const UI_ICONS = {
+  play: `<svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.4 2.9a.75.75 0 0 1 1.15-.63l7.6 4.95a.75.75 0 0 1 0 1.26l-7.6 4.95a.75.75 0 0 1-1.15-.63V2.9z"/></svg>`,
+  pause: `<svg viewBox="0 0 16 16" fill="currentColor"><rect x="3.5" y="2.6" width="3.3" height="10.8" rx="1.2"/><rect x="9.2" y="2.6" width="3.3" height="10.8" rx="1.2"/></svg>`,
+  step: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 3.6a.6.6 0 0 1 .95-.48l5.2 3.9a.6.6 0 0 1 0 .96l-5.2 3.9a.6.6 0 0 1-.95-.48V3.6z" fill="currentColor" stroke="none"/><line x1="12" y1="3.4" x2="12" y2="12.6"/></svg>`,
+  reset: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 8a4.8 4.8 0 1 0 1.4-3.4L3 6.2"/><path d="M3 2.8v3.4h3.4"/></svg>`,
+  undo: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4.4L2.8 7.5 6 10.6"/><path d="M3.1 7.5h6.1a3.75 3.75 0 0 1 0 7.5H7.5"/></svg>`,
+  redo: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4.4l3.2 3.1L10 10.6"/><path d="M12.9 7.5H6.8a3.75 3.75 0 0 0 0 7.5h1.7"/></svg>`,
+  fit: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 5.5v-2a1 1 0 0 1 1-1h2M10.5 2.5h2a1 1 0 0 1 1 1v2M13.5 10.5v2a1 1 0 0 1-1 1h-2M5.5 13.5h-2a1 1 0 0 1-1-1v-2"/></svg>`,
+  search: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L13.8 13.8"/></svg>`,
+  audio: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2h2.4l3.3-2.9v9.4L4.9 9.8H2.5a.5.5 0 0 1-.5-.5V6.7a.5.5 0 0 1 .5-.5z"/><path d="M10.8 5.6a3.4 3.4 0 0 1 0 4.8M12.8 3.8a5.8 5.8 0 0 1 0 8.4"/></svg>`,
+  audioOff: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2h2.4l3.3-2.9v9.4L4.9 9.8H2.5a.5.5 0 0 1-.5-.5V6.7a.5.5 0 0 1 .5-.5z"/><path d="M10.6 6l3.4 4M14 6l-3.4 4"/></svg>`,
+  sliders: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2.5 4h11M2.5 8h11M2.5 12h11"/><circle cx="5.5" cy="4" r="1.55" fill="var(--bg-surface, #fffdf8)"/><circle cx="10.5" cy="8" r="1.55" fill="var(--bg-surface, #fffdf8)"/><circle cx="6.5" cy="12" r="1.55" fill="var(--bg-surface, #fffdf8)"/></svg>`,
+  download: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5v7.6M5.1 7.4L8 10.3l2.9-2.9M2.8 12.8h10.4"/></svg>`,
+  help: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="5.8"/><path d="M6.4 6.2a1.7 1.7 0 0 1 3.2.8c0 1.1-1.6 1.4-1.6 2.3"/><circle cx="8" cy="11.6" r="0.65" fill="currentColor" stroke="none"/></svg>`,
+  rotate: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 8a4.5 4.5 0 1 1-1.3-3.2L13 6.5"/><path d="M13 3.2v3.3H9.7"/></svg>`,
+  flip: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5v11M5.5 5L2.5 8l3 3M10.5 5l3 3-3 3"/></svg>`,
+  copy: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5.5" width="7.5" height="7.5" rx="1.6"/><path d="M10.5 5.5V4a1.5 1.5 0 0 0-1.5-1.5H4A1.5 1.5 0 0 0 2.5 4v5A1.5 1.5 0 0 0 4 10.5h1.5"/></svg>`,
+  trash: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5h10M6 4.5V3.1a.6.6 0 0 1 .6-.6h2.8a.6.6 0 0 1 .6.6v1.4M4.5 4.5l.7 8.2a1 1 0 0 0 1 .8h3.6a1 1 0 0 0 1-.8l.7-8.2"/></svg>`,
+  close: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4.2 4.2l7.6 7.6M11.8 4.2l-7.6 7.6"/></svg>`,
+  chevronDown: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>`,
+  chevronUp: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10l4-4 4 4"/></svg>`,
+  check: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 8.5l3.2 3.2 6.4-7"/></svg>`,
+  plus: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 3.2v9.6M3.2 8h9.6"/></svg>`,
+  arrowRight: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 8h9.6M9 4.2L12.8 8 9 11.8"/></svg>`,
+  inspect: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><rect x="2.2" y="2.8" width="11.6" height="10.4" rx="2"/><line x1="9.5" y1="2.8" x2="9.5" y2="13.2"/></svg>`,
+  sun: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round"><circle cx="8" cy="8" r="2.8"/><path d="M8 1.8v1.4M8 12.8v1.4M1.8 8h1.4M12.8 8h1.4M3.6 3.6l1 1M11.4 11.4l1 1M12.4 3.6l-1 1M4.6 11.4l-1 1"/></svg>`,
+  moon: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 9.6A5.2 5.2 0 1 1 6.4 3.2a4.1 4.1 0 0 0 6.4 6.4z"/></svg>`,
+  speed: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round"><path d="M2.6 11.5a5.8 5.8 0 1 1 10.8 0"/><path d="M8 9.5l2.8-3.4"/><circle cx="8" cy="10" r="1.25" fill="currentColor" stroke="none"/></svg>`,
+  panelLeft: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2.6" width="12" height="10.8" rx="2.1"/><line x1="6.2" y1="2.6" x2="6.2" y2="13.4"/></svg>`,
+  activity: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M1.8 8.5h2.6l1.7-4.5 2.6 8 1.8-4.5 1.3 1h2.4"/></svg>`,
+  folder: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4.5A1.5 1.5 0 0 1 3.5 3h3l1.4 1.6h4.6A1.5 1.5 0 0 1 14 6.1v5.4a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 11.5v-7z"/></svg>`,
+  globe: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round"><circle cx="8" cy="8" r="5.8"/><ellipse cx="8" cy="8" rx="2.6" ry="5.8"/><line x1="2.4" y1="8" x2="13.6" y2="8"/></svg>`,
+  externalLink: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2.5h4v4M13.5 2.5L7.5 8.5"/><path d="M12 9v3.2a1.3 1.3 0 0 1-1.3 1.3H3.8a1.3 1.3 0 0 1-1.3-1.3V5.3A1.3 1.3 0 0 1 3.8 4H7"/></svg>`,
+  lightbulb: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M5.8 11.2a3.8 3.8 0 1 1 4.4 0c-.4.3-.7.8-.7 1.3H6.5c0-.5-.3-1-.7-1.3z"/><line x1="6.4" y1="14" x2="9.6" y2="14"/></svg>`,
+  // Luminous Atelier storybook & settings icons
+  sparkles: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.2 2.2l1 3.1 3.1 1-3.1 1-1 3.1-1-3.1-3.1-1 3.1-1 1-3.1z"/><path d="M12.3 9.8l.55 1.55 1.55.55-1.55.55-.55 1.55-.55-1.55-1.55-.55 1.55-.55.55-1.55z"/></svg>`,
+  palette: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.2a5.8 5.8 0 1 0 0 11.6c1.1 0 1.6-.65 1.6-1.35 0-.45-.2-.75-.2-1.1 0-.6.45-1.05 1.1-1.05h1.2A2.3 2.3 0 0 0 13.8 8 5.8 5.8 0 0 0 8 2.2z"/><circle cx="5.4" cy="6.4" r="0.8" fill="currentColor" stroke="none"/><circle cx="8" cy="4.9" r="0.8" fill="currentColor" stroke="none"/><circle cx="10.6" cy="6.5" r="0.8" fill="currentColor" stroke="none"/><circle cx="5.4" cy="9.6" r="0.8" fill="currentColor" stroke="none"/></svg>`,
+  book: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4.2c-1.2-.9-3-.9-4.7-.5a.8.8 0 0 0-.6.8v7.6a.7.7 0 0 0 .9.7c1.6-.4 3.2-.2 4.4.7 1.2-.9 2.8-1.1 4.4-.7a.7.7 0 0 0 .9-.7V4.5a.8.8 0 0 0-.6-.8c-1.7-.4-3.5-.4-4.7.5z"/><line x1="8" y1="4.2" x2="8" y2="13.5"/></svg>`,
+  hand: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 8.2V3.6a1.1 1.1 0 1 1 2.2 0v3.2"/><path d="M8.6 6.4a1.1 1.1 0 1 1 2.2 0v1.2"/><path d="M10.8 7.4a1.05 1.05 0 1 1 2.1 0v2.5a4.1 4.1 0 0 1-4.1 4.1H7.6a3.5 3.5 0 0 1-2.8-1.4L3 10.2a1.1 1.1 0 0 1 1.6-1.5l1.8 1.4"/></svg>`,
+  star: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.2l1.75 3.6 3.95.55-2.88 2.78.7 3.92L8 11.18l-3.52 1.87.7-3.92L2.3 6.35l3.95-.55L8 2.2z"/></svg>`,
+  formula: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.8 3.2c-1.1 0-1.6.6-1.8 1.8L3.8 12.8M2.8 6.8h4.2"/><path d="M9.1 7.2l3.8 5.2M12.9 7.2l-3.8 5.2"/></svg>`,
+  settings: `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.3"/><path d="M8 2.2v1.3M8 12.5v1.3M2.2 8h1.3M12.5 8h1.3M3.9 3.9l.9.9M11.2 11.2l.9.9M12.1 3.9l-.9.9M4.8 11.2l-.9.9"/></svg>`,
+  // Category icons for Studio Tool Rail
+  catSources: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="7.5"/><path d="M8.5 12q1.8-3.8 3.5 0t3.5 0"/></svg>`,
+  catPassives: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12h3.5l1.4-4 2.3 8 2.3-8 2.3 8 2.3-8 1.4 4H21.5"/></svg>`,
+  catActive: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5" stroke-opacity="0.45"/><path d="M5 12h4.5M9.5 7.5v9M9.5 10l6-4V3.5M9.5 14l6 4v2.5"/></svg>`,
+  catControls: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 14h4.5M16.5 14H21M7.5 14l8.5-5.8"/><circle cx="7.5" cy="14" r="2"/><circle cx="16.5" cy="14" r="2"/></svg>`,
+  catLogic: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5h4M3 15.5h4M17.5 12H21"/><path d="M7 6h5a6 6 0 0 1 0 12H7V6z"/></svg>`,
+};
+
+export function uiIcon(name) {
+  return UI_ICONS[name] || '';
+}

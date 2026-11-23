@@ -1,0 +1,2868 @@
+/* ============================================================================
+ * Wirebench v5 - "Luminous Atelier" Craft Design System
+ *
+ * Inspired by Studio Ghibli's sunlit inventor workshops, Monument Valley's
+ * tactile ceramic toys, Mini Motorways' visual calm, and illustrated journals.
+ *
+ * Core Principles:
+ * - Daylight Atelier (sunlit warm cotton parchment #FAF4E8) &
+ *   Starlight Atelier (cozy twilight plum-indigo #181624).
+ * - Expressive optical serif (Fraunces SOFT 80 WONK 1) + Plus Jakarta Sans +
+ *   JetBrains Mono strictly for live measurements.
+ * - Zero 1px gridline soup, zero nested card-ception, generous calm emptiness.
+ * - Tactile wooden-stamp presses, spring linear() popover blooms,
+ *   WCAG 3:1 :focus-visible rings, and forced-colors safety.
+ * ============================================================================ */
+
+:root {
+  color-scheme: light dark;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+
+  /* Spring easing fallback + modern linear() spring */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: linear(
+    0, 0.009, 0.035 2.1%, 0.141, 0.281 6.7%, 0.723 12.9%, 0.938 16.7%,
+    1.017, 1.077, 1.121, 1.149 24.3%, 1.159, 1.163, 1.161, 1.154 29.9%,
+    1.129 32.8%, 1.051 39.6%, 1.017 43.1%, 0.991, 0.977 51%, 0.974 53.8%,
+    0.975 57.1%, 0.997 69.8%, 1.003 76.9%, 1.004 83.8%, 1
+  );
+
+  /* Organic inline SVG paper fiber grain (zero network requests) */
+  --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ----------------------------------------------------------------------------
+ * DAYLIGHT ATELIER (Default - Sunlit Cotton Parchment & Honey Craft Desk)
+ * ---------------------------------------------------------------------------- */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --bg-canvas: #FAF4E8;
+  --bg-surface: #FFFDF8;
+  --bg-surface-elev: #FFFFFF;
+  --bg-tray: #F3EBD9;
+  --bg-tray-deep: #E8DEC8;
+  --bg-hover: rgba(74, 52, 34, 0.06);
+  --bg-press: rgba(74, 52, 34, 0.11);
+
+  --hairline: rgba(74, 52, 34, 0.085);
+  --hairline-strong: rgba(74, 52, 34, 0.16);
+
+  --ink: #2D221C;
+  --ink-soft: #6F5D50;
+  --ink-muted: #9E8C7E;
+  --ink-inv: #FFFDF8;
+
+  --accent: #D45D44;
+  --accent-hover: #C24E36;
+  --accent-soft: rgba(212, 93, 68, 0.13);
+
+  --sage: #2E7D60;
+  --sage-soft: rgba(46, 125, 96, 0.14);
+
+  --honey: #E39D34;
+  --honey-soft: rgba(227, 157, 52, 0.17);
+
+  --blush: #D1495B;
+  --blush-soft: rgba(209, 73, 91, 0.14);
+
+  --indigo: #465D8C;
+  --indigo-soft: rgba(70, 93, 140, 0.13);
+
+  --vig-shadow: rgba(74, 50, 28, 0.08);
+  --grain-opacity: 0.032;
+  --grain-blend: multiply;
+  --welcome-aura: radial-gradient(circle at 50% 24%, rgba(255, 250, 236, 0.92) 0%, rgba(250, 244, 232, 0) 68%);
+
+  --shadow-soft: 0 10px 30px rgba(74, 50, 28, 0.09), 0 2px 6px rgba(74, 50, 28, 0.05);
+  --shadow-pill: 0 6px 20px rgba(74, 50, 28, 0.08), 0 1px 4px rgba(74, 50, 28, 0.045), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  --shadow-pop: 0 18px 44px rgba(64, 42, 22, 0.14), 0 4px 12px rgba(64, 42, 22, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --shadow-tile: 0 2px 7px rgba(74, 50, 28, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  --shadow-tile-hover: 0 10px 22px rgba(74, 50, 28, 0.11), 0 2px 5px rgba(74, 50, 28, 0.05);
+  --scrim: rgba(45, 34, 28, 0.28);
+}
+
+/* ----------------------------------------------------------------------------
+ * STARLIGHT ATELIER (Dark - Cozy Midnight Firefly Workshop)
+ * ---------------------------------------------------------------------------- */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-canvas: #181624;
+  --bg-surface: #232034;
+  --bg-surface-elev: #2E2A44;
+  --bg-tray: #2C2840;
+  --bg-tray-deep: #1D1A2C;
+  --bg-hover: rgba(247, 239, 225, 0.075);
+  --bg-press: rgba(247, 239, 225, 0.13);
+
+  --hairline: rgba(246, 238, 224, 0.075);
+  --hairline-strong: rgba(246, 238, 224, 0.15);
+
+  --ink: #F6EEE0;
+  --ink-soft: #B8AC9E;
+  --ink-muted: #80768F;
+  --ink-inv: #181624;
+
+  --accent: #F07A60;
+  --accent-hover: #F58F78;
+  --accent-soft: rgba(240, 122, 96, 0.17);
+
+  --sage: #52D1A0;
+  --sage-soft: rgba(82, 209, 160, 0.16);
+
+  --honey: #F5BC58;
+  --honey-soft: rgba(245, 188, 88, 0.18);
+
+  --blush: #F26D7D;
+  --blush-soft: rgba(242, 109, 125, 0.17);
+
+  --indigo: #8CA7E0;
+  --indigo-soft: rgba(140, 167, 224, 0.16);
+
+  --vig-shadow: rgba(6, 4, 14, 0.42);
+  --grain-opacity: 0.025;
+  --grain-blend: screen;
+  --welcome-aura: radial-gradient(circle at 50% 22%, rgba(245, 188, 88, 0.11) 0%, rgba(24, 22, 36, 0) 64%);
+
+  --shadow-soft: 0 14px 36px rgba(8, 6, 16, 0.45), 0 2px 8px rgba(8, 6, 16, 0.30);
+  --shadow-pill: 0 8px 24px rgba(8, 6, 16, 0.42), 0 2px 6px rgba(8, 6, 16, 0.28), inset 0 1px 0 rgba(255, 245, 230, 0.06);
+  --shadow-pop: 0 22px 50px rgba(6, 4, 14, 0.56), 0 4px 14px rgba(6, 4, 14, 0.36), inset 0 1px 0 rgba(255, 245, 230, 0.07);
+  --shadow-tile: 0 2px 8px rgba(8, 6, 16, 0.26), inset 0 1px 0 rgba(255, 245, 230, 0.045);
+  --shadow-tile-hover: 0 10px 24px rgba(8, 6, 16, 0.42), inset 0 1px 0 rgba(255, 245, 230, 0.09);
+  --scrim: rgba(8, 6, 16, 0.58);
+}
+
+/* ============================================================================
+ * BASE, TYPOGRAPHY & ACCESSIBLE INTERACTIONS
+ * ============================================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.spacer { flex: 1; }
+.hidden { display: none !important; }
+.accent-txt { color: var(--accent); font-weight: 600; }
+
+[data-mode="learn"] .studio-only { display: none !important; }
+[data-mode="studio"] .learn-only { display: none !important; }
+
+/* Accessible 3:1 terracotta keyboard focus ring - never noisy on mouse clicks */
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 2.5px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Tactile wooden-stamp press feedback on interactive buttons */
+button {
+  font-family: inherit;
+  transition: transform 0.14s var(--ease-out), background-color 0.16s ease, color 0.16s ease, box-shadow 0.18s ease, border-color 0.16s ease;
+}
+
+button:not(:disabled):active {
+  transform: translateY(1.5px) scale(0.98);
+}
+
+/* Soft unobtrusive warm scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--hairline-strong) transparent;
+}
+*::-webkit-scrollbar { width: 6px; height: 6px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: var(--hairline-strong);
+  border-radius: 999px;
+}
+
+kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 21px;
+  padding: 0 6px;
+  border-radius: 7px;
+  background: var(--bg-tray);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 1.5px 0 var(--hairline-strong);
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+}
+
+/* ============================================================================
+ * STORYBOOK WELCOME COVER (#welcome-overlay)
+ * ============================================================================ */
+
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: none;
+  flex-direction: column;
+  background-color: var(--bg-canvas);
+  background-image: var(--welcome-aura);
+  overflow-y: auto;
+}
+
+.welcome-overlay.open {
+  display: flex;
+}
+
+/* Delicate 3% organic cotton paper fiber texture */
+.welcome-overlay::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: var(--paper-grain);
+  background-size: 220px 220px;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.welcome-top-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  padding: 18px 24px 0;
+}
+
+.welcome-prefs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 7px;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-pill);
+  border: 1px solid var(--hairline);
+}
+
+.pref-seg {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.pref-pill {
+  border: none;
+  background: transparent;
+  color: var(--ink-muted);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.pref-pill:hover {
+  color: var(--ink);
+  background: var(--bg-hover);
+}
+.pref-pill.active {
+  background: var(--bg-tray);
+  color: var(--ink);
+}
+
+.pref-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--hairline-strong);
+}
+
+.welcome-stage {
+  position: relative;
+  z-index: 2;
+  margin: auto;
+  width: 100%;
+  max-width: 650px;
+  padding: 16px 28px 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 26px;
+}
+
+.welcome-vignette-wrap {
+  width: 100%;
+  max-width: 430px;
+  margin-bottom: -8px;
+}
+
+.welcome-vignette {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.welcome-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.welcome-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 80, "WONK" 1;
+  font-size: clamp(46px, 6.4vw, 68px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  color: var(--ink);
+}
+
+.welcome-tagline {
+  margin: 0;
+  font-size: clamp(15px, 2vw, 17.5px);
+  font-weight: 400;
+  color: var(--ink-soft);
+  max-width: 420px;
+  line-height: 1.5;
+}
+
+/* Two sculptural warm-paper portals (zero SaaS clutter) */
+.welcome-portals {
+  width: 100%;
+  max-width: 580px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 6px;
+}
+
+.portal-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 14px;
+  padding: 24px 24px 20px;
+  border-radius: 26px;
+  background: var(--bg-surface);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-soft);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.portal-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-soft);
+  box-shadow: var(--shadow-pop);
+}
+
+.portal-card:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+.portal-emblem {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  transition: transform 0.26s var(--ease-out);
+}
+.portal-emblem svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.portal-card:hover .portal-emblem {
+  transform: scale(1.07) rotate(-3deg);
+}
+
+.portal-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.portal-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.portal-title {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 80, "WONK" 1;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.resume-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--sage-soft);
+  color: var(--sage);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.resume-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sage);
+}
+
+.portal-desc {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.portal-foot {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 6px;
+}
+
+.portal-meta {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  letter-spacing: 0.01em;
+}
+
+.portal-arrow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-tray);
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s var(--ease-out), background-color 0.2s ease, color 0.2s ease;
+}
+.portal-arrow svg {
+  width: 14px;
+  height: 14px;
+}
+.portal-card:hover .portal-arrow {
+  background: var(--accent);
+  color: #FFFFFF;
+  transform: translateX(3px);
+}
+
+/* ============================================================================
+ * MAIN WORKBENCH SHELL - Full-Bleed Parchment + Floating Sculpted Pills
+ * ============================================================================ */
+
+.bench-shell {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-canvas);
+}
+
+.canvas-stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  position: relative;
+  background: var(--bg-canvas);
+  overflow: hidden;
+}
+
+/* Subtle cotton paper fiber overlay across the canvas */
+.canvas-stage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--paper-grain);
+  background-size: 220px 220px;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  pointer-events: none;
+  z-index: 2;
+}
+
+#schematic-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================================
+ * WHISPER-CLEAN FLOATING TOP STRIP (.atelier-top)
+ * ============================================================================ */
+
+.atelier-top {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  right: 16px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.top-cluster {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  padding: 4px 6px;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-pill);
+}
+
+.top-left {
+  padding-left: 12px;
+  padding-right: 6px;
+  gap: 8px;
+  max-width: 44vw;
+}
+
+.top-center {
+  padding: 4px 8px;
+}
+
+.top-right {
+  padding: 4px 6px;
+  gap: 3px;
+}
+
+/* Fraunces Brand Wordmark */
+.brand-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 6px 0 2px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.brand-ember {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  flex-shrink: 0;
+  transition: transform 0.2s var(--ease-out);
+}
+.brand-stamp:hover .brand-ember {
+  transform: scale(1.18);
+}
+
+.brand-word {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 80, "WONK" 1;
+  font-size: 16.5px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.brand-stamp:hover .brand-word {
+  color: var(--accent);
+}
+
+/* Tactile Learn | Studio Pill Switch */
+.mode-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--bg-tray);
+  gap: 2px;
+}
+
+.mode-opt {
+  height: 28px;
+  padding: 0 13px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.mode-opt:hover {
+  color: var(--ink);
+}
+.mode-opt.active {
+  background: var(--bg-surface-elev);
+  color: var(--ink);
+  box-shadow: 0 2px 6px rgba(74, 50, 28, 0.08);
+}
+
+/* Studio Unified Circuit & Tabs Trigger Pill */
+.circuit-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 34px;
+  padding: 0 10px 0 12px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  max-width: 210px;
+}
+.circuit-trigger:hover {
+  background: var(--bg-hover);
+}
+
+.circuit-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 10.5px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.circuit-chev {
+  width: 14px;
+  height: 14px;
+  color: var(--ink-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.circuit-chev svg { width: 100%; height: 100%; }
+
+/* Studio Center Transport */
+.transport {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.sim-clock {
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  padding: 0 8px 0 4px;
+  min-width: 58px;
+  text-align: right;
+}
+
+/* Shared Tactile Top Pill Buttons & Stamp Icons */
+.top-pill-btn {
+  height: 34px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.top-pill-btn:hover {
+  background: var(--bg-hover);
+  color: var(--ink);
+}
+.top-pill-btn.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.stamp-ico,
+.flat-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+.stamp-ico.xs,
+.flat-ico.xs {
+  width: 28px;
+  height: 28px;
+}
+.stamp-ico svg,
+.flat-ico svg {
+  width: 15px;
+  height: 15px;
+}
+.stamp-ico.xs svg,
+.flat-ico.xs svg {
+  width: 13.5px;
+  height: 13.5px;
+}
+.ico-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+.ico-slot svg { width: 100%; height: 100%; display: block; }
+
+#btn-settings,
+.settings-trigger {
+  color: var(--ink-soft);
+}
+#btn-settings svg,
+.settings-trigger svg {
+  color: inherit;
+  stroke: currentColor;
+}
+#btn-settings:hover,
+.settings-trigger:hover {
+  color: var(--ink);
+}
+[data-theme="dark"] #btn-settings,
+[data-theme="dark"] .settings-trigger {
+  color: #DDD2C4;
+}
+[data-theme="dark"] #btn-settings:hover,
+[data-theme="dark"] .settings-trigger:hover {
+  color: var(--ink);
+}
+
+.stamp-ico:hover:not(:disabled),
+.flat-ico:hover:not(:disabled) {
+  background: var(--bg-hover);
+  color: var(--ink);
+}
+.stamp-ico:disabled,
+.flat-ico:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.stamp-ico.danger:hover,
+.flat-ico.danger:hover {
+  background: var(--blush-soft);
+  color: var(--blush);
+}
+
+/* Round Warm Play/Pause Stamp */
+.stamp-ico.play-btn,
+.flat-ico.play-btn {
+  background: var(--bg-tray);
+  color: var(--ink);
+}
+.stamp-ico.play-btn.running,
+.flat-ico.play-btn.running {
+  background: var(--sage-soft);
+  color: var(--sage);
+}
+.stamp-ico.play-btn:hover,
+.flat-ico.play-btn:hover {
+  background: var(--sage);
+  color: #FFFFFF;
+}
+
+/* ============================================================================
+ * LEARN 6-CHAPTER STORYBOOK STONES (#learn-stepper)
+ * ============================================================================ */
+
+.chapter-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.chapter-stone,
+.lab-idx {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  min-width: 32px;
+  padding: 0 9px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-muted);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.chapter-stone:hover,
+.lab-idx:hover {
+  background: var(--bg-hover);
+  color: var(--ink);
+}
+
+.chapter-stone.done,
+.lab-idx.done {
+  background: var(--sage-soft);
+  color: var(--sage);
+}
+
+.chapter-stone.active,
+.lab-idx.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 0 14px 0 10px;
+}
+
+.chapter-num,
+.lab-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.chapter-check {
+  width: 13px;
+  height: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.chapter-check svg { width: 100%; height: 100%; }
+
+.chapter-name,
+.lab-name {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 80, "WONK" 1;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  max-width: 190px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ============================================================================
+ * SCULPTED FLOATING POPOVERS (Circuits, Speed, File, Settings)
+ * ============================================================================ */
+
+.pop-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.atelier-pop,
+.flat-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--hairline);
+  border-radius: 20px;
+  box-shadow: var(--shadow-pop);
+  z-index: 95;
+  transform-origin: top right;
+}
+
+.atelier-pop.open,
+.flat-menu.open {
+  display: flex;
+  flex-direction: column;
+}
+
+.circuits-pop {
+  right: auto;
+  left: 0;
+  transform-origin: top left;
+  width: 300px;
+  max-height: 72vh;
+  overflow-y: auto;
+  padding: 10px;
+  gap: 2px;
+}
+
+.speed-pop {
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: top center;
+  width: 230px;
+  padding: 14px 16px;
+  gap: 10px;
+}
+
+.action-pop {
+  width: 214px;
+  padding: 8px;
+  gap: 2px;
+}
+
+.settings-pop {
+  width: 256px;
+  padding: 12px 12px 10px;
+  gap: 4px;
+}
+
+.pop-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.pop-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  color: var(--ink-muted);
+}
+
+.pop-div,
+.cm-divider {
+  height: 1px;
+  background: var(--hairline);
+  margin: 6px 6px;
+  flex-shrink: 0;
+}
+
+.pop-row,
+.fm-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 11px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+.pop-row:hover,
+.fm-row:hover {
+  background: var(--bg-hover);
+}
+.pop-row.danger,
+.fm-row.danger {
+  color: var(--blush);
+}
+.pop-row.danger:hover,
+.fm-row.danger:hover {
+  background: var(--blush-soft);
+}
+
+/* Settings Popover Controls */
+.settings-title {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 80, "WONK" 1;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 2px 8px 6px;
+}
+
+.settings-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 4px 8px;
+}
+
+.settings-lbl {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.settings-seg {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--bg-tray);
+  gap: 2px;
+}
+
+.seg-opt {
+  height: 24px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-muted);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.seg-opt:hover {
+  color: var(--ink);
+}
+.seg-opt.active {
+  background: var(--bg-surface-elev);
+  color: var(--ink);
+  box-shadow: 0 1px 4px rgba(74, 50, 28, 0.10);
+}
+
+.state-chip,
+.fm-state {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--bg-tray);
+  color: var(--ink-muted);
+  font-size: 10.5px;
+  font-weight: 600;
+}
+.state-chip.on,
+.fm-state.on {
+  background: var(--sage-soft);
+  color: var(--sage);
+}
+
+/* Circuits & Open Tabs Popover Content */
+.cm-section-label,
+.cm-cat {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  padding: 9px 10px 4px;
+}
+
+.cm-tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 6px;
+}
+
+.cm-tab-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 4px 2px 2px;
+  border-radius: 12px;
+  transition: background-color 0.14s ease;
+}
+.cm-tab-row:hover {
+  background: var(--bg-hover);
+}
+.cm-tab-row.active {
+  background: var(--accent-soft);
+}
+
+.cm-tab-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+.cm-tab-row.active .cm-tab-main {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.cm-tab-dirty {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.cm-tab-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cm-tab-close {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.cm-tab-close svg { width: 11px; height: 11px; }
+.cm-tab-close:hover {
+  background: var(--blush-soft);
+  color: var(--blush);
+}
+
+.cm-new-btn {
+  width: 100%;
+  height: 34px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 12px;
+  margin-top: 2px;
+  border: none;
+  border-radius: 12px;
+  background: var(--bg-tray);
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.cm-new-btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.cm-new-btn:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.cm-note {
+  font-size: 11px;
+  color: var(--ink-muted);
+  padding: 4px 10px 6px;
+}
+
+.cm-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7.5px 10px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+.cm-item:hover {
+  background: var(--bg-hover);
+}
+.cm-item.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.cm-sub {
+  font-size: 10.5px;
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+
+/* ============================================================================
+ * STUDIO AIRY FLOATING ILLUSTRATED PARTS TRAY (#parts-panel)
+ * Zero 1px gridline matrix - floating warm oat-linen box of miniature parts!
+ * ============================================================================ */
+
+.parts-tray {
+  position: absolute;
+  top: 72px;
+  left: 16px;
+  bottom: 16px;
+  width: 226px;
+  z-index: 30;
+  display: none;
+  flex-direction: column;
+  border-radius: 22px;
+  background: var(--bg-tray);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.parts-tray.open {
+  display: flex;
+}
+
+.parts-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 12px 8px;
+  padding: 0 12px;
+  height: 36px;
+  border-radius: 14px;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-tile);
+  flex-shrink: 0;
+}
+
+.parts-search-ico {
+  width: 14px;
+  height: 14px;
+  color: var(--ink-muted);
+  display: inline-flex;
+  flex-shrink: 0;
+}
+.parts-search-ico svg { width: 100%; height: 100%; }
+
+.parts-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 12.5px;
+  outline: none;
+  user-select: text;
+}
+.parts-input::placeholder { color: var(--ink-muted); }
+
+.parts-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 0 12px 8px;
+  flex-shrink: 0;
+}
+
+.pcat-btn {
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 9px;
+  cursor: pointer;
+}
+.pcat-btn:hover {
+  background: var(--bg-hover);
+  color: var(--ink);
+}
+.pcat-btn.active {
+  background: var(--bg-surface);
+  color: var(--accent);
+  box-shadow: var(--shadow-tile);
+}
+
+/* Airy spaced illustrated miniature tiles (ZERO rigid 1px gridlines!) */
+.parts-grid {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 2px 12px 12px;
+  align-content: start;
+}
+
+.part-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 6px 10px;
+  border: 1.5px solid transparent;
+  border-radius: 15px;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-tile);
+  color: var(--ink);
+  cursor: grab;
+  transition: transform 0.18s var(--ease-out), box-shadow 0.18s ease, border-color 0.16s ease, background-color 0.16s ease;
+}
+
+.part-cell:hover {
+  transform: translateY(-2.5px);
+  box-shadow: var(--shadow-tile-hover);
+}
+
+.part-cell:active {
+  cursor: grabbing;
+  transform: translateY(0.5px) scale(0.97);
+}
+
+.part-cell.active {
+  border-color: var(--accent);
+  background: var(--bg-surface-elev);
+  box-shadow: 0 0 0 3px var(--accent-soft), var(--shadow-tile);
+}
+
+.part-sym {
+  width: 44px;
+  height: 30px;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.part-sym svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.part-lbl {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-align: center;
+  line-height: 1.2;
+}
+.part-cell.active .part-lbl {
+  color: var(--accent);
+}
+
+.parts-foot {
+  padding: 9px 12px 11px;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* ============================================================================
+ * STUDIO FLOATING BOTTOM TACTILE TOOL PILL (#tool-dock)
+ * ============================================================================ */
+
+.tool-dock {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 5px 7px;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-pill);
+}
+
+.dock-btn,
+.cad-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.dock-btn:hover,
+.cad-btn:hover {
+  background: var(--bg-hover);
+  color: var(--ink);
+}
+.dock-btn.active,
+.cad-btn.active {
+  background: var(--ink);
+  color: var(--ink-inv);
+}
+
+.dock-ico,
+.cad-ico {
+  width: 15px;
+  height: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.dock-ico svg,
+.cad-ico svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dock-gap {
+  width: 6px;
+  height: 16px;
+  position: relative;
+}
+.dock-gap::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 2px;
+  bottom: 2px;
+  width: 1px;
+  background: var(--hairline-strong);
+}
+
+.dock-cmd {
+  height: 28px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 999px;
+  background: var(--bg-tray);
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.dock-cmd:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ============================================================================
+ * STUDIO CONTEXTUAL FLOATING RIGHT PAPER INSPECTOR (#inspector-card)
+ * Appears ONLY when 1 component or wire is selected!
+ * ============================================================================ */
+
+.inspector-paper {
+  position: absolute;
+  top: 72px;
+  right: 16px;
+  width: 266px;
+  max-height: calc(100% - 88px);
+  z-index: 30;
+  display: none;
+  flex-direction: column;
+  border-radius: 22px;
+  background: var(--bg-surface);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-pop);
+  overflow-y: auto;
+}
+
+.inspector-paper.open {
+  display: flex;
+}
+
+.insp-head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 14px 10px;
+}
+
+.insp-sym {
+  width: 40px;
+  height: 36px;
+  padding: 5px;
+  border-radius: 12px;
+  background: var(--bg-tray);
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.insp-sym svg { width: 100%; height: 100%; }
+
+.insp-titles {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.insp-desig {
+  width: 100%;
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 14.5px;
+  font-weight: 700;
+  padding: 1px 6px;
+  margin-left: -6px;
+  outline: none;
+  user-select: text;
+}
+.insp-desig:focus {
+  background: var(--bg-tray);
+  border-color: var(--accent);
+}
+
+.insp-wire-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.insp-type {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+/* Soft recessed 3-column telemetry pillow (NO inner 1px grid walls!) */
+.insp-readout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin: 0 14px 4px;
+  padding: 9px 6px;
+  border-radius: 15px;
+  background: var(--bg-tray);
+}
+
+.ir-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+}
+.ir-col span {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+.ir-col strong {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.insp-wire-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 14px 10px;
+  padding: 11px 14px;
+  border-radius: 15px;
+  background: var(--bg-tray);
+}
+.insp-wire-row strong { font-size: 13px; color: var(--ink); }
+.insp-wire-row strong.pos { color: var(--sage); }
+.insp-wire-row strong.neg { color: var(--blush); }
+
+.insp-wire-act {
+  padding: 0 14px 12px;
+}
+
+.insp-params {
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.p-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.p-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.p-lbl {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.p-val {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.p-input,
+.p-select {
+  width: 100%;
+  height: 30px;
+  padding: 0 10px;
+  background: var(--bg-tray);
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 12px;
+  outline: none;
+  user-select: text;
+}
+.p-input.compact {
+  width: 92px;
+  text-align: right;
+  font-family: var(--font-mono);
+}
+.p-input:focus,
+.p-select:focus {
+  background: var(--bg-surface-elev);
+  border-color: var(--accent);
+}
+.p-input.invalid {
+  border-color: var(--blush);
+  background: var(--blush-soft);
+}
+
+.insp-foot {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 14px 13px;
+  border-top: 1px solid var(--hairline);
+}
+
+/* ============================================================================
+ * TACTILE STORYBOOK CONTROLS (Sliders, Rockers, Ceramic Buttons)
+ * ============================================================================ */
+
+.atelier-fader,
+.hw-fader {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+}
+
+.atelier-fader::-webkit-slider-runnable-track,
+.hw-fader::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--bg-tray-deep);
+}
+
+.atelier-fader::-webkit-slider-thumb,
+.hw-fader::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: var(--bg-surface-elev);
+  border: 2.5px solid var(--accent);
+  box-shadow: 0 2px 6px rgba(74, 50, 28, 0.20);
+  transition: transform 0.14s var(--ease-out), background-color 0.14s ease;
+}
+
+.atelier-fader:hover::-webkit-slider-thumb,
+.hw-fader:hover::-webkit-slider-thumb,
+.atelier-fader:active::-webkit-slider-thumb,
+.hw-fader:active::-webkit-slider-thumb {
+  transform: scale(1.14);
+  background: var(--accent);
+}
+
+.atelier-fader::-moz-range-track,
+.hw-fader::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--bg-tray-deep);
+  border: none;
+}
+
+.atelier-fader::-moz-range-thumb,
+.hw-fader::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg-surface-elev);
+  border: 2.5px solid var(--accent);
+  box-shadow: 0 2px 6px rgba(74, 50, 28, 0.20);
+}
+
+.atelier-rocker,
+.hw-rocker {
+  display: inline-flex;
+  background: var(--bg-tray);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 3px;
+}
+.atelier-rocker.full,
+.hw-rocker.full {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.atelier-opt,
+.hw-opt {
+  height: 28px;
+  padding: 0 13px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.atelier-opt:hover,
+.hw-opt:hover {
+  color: var(--ink);
+}
+.atelier-opt.active,
+.hw-opt.active {
+  background: var(--bg-surface-elev);
+  color: var(--ink);
+  box-shadow: 0 2px 7px rgba(74, 50, 28, 0.12);
+}
+
+.atelier-btn,
+.hw-btn {
+  height: 30px;
+  padding: 0 13px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline-strong);
+  background: var(--bg-surface);
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.atelier-btn:hover,
+.hw-btn:hover {
+  color: var(--ink);
+  background: var(--bg-hover);
+}
+.atelier-btn.active,
+.hw-btn.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--ink-inv);
+}
+.atelier-btn.primary,
+.hw-btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px var(--accent-soft);
+}
+.atelier-btn.primary:hover,
+.hw-btn.primary:hover {
+  background: var(--accent-hover);
+}
+.atelier-btn.full,
+.hw-btn.full {
+  width: 100%;
+  height: 36px;
+}
+
+/* ============================================================================
+ * LEARN MODE FLOATING STORYBOOK RIBBON (#learn-bar)
+ * One serene sculpted ivory pill at bottom-center - ZERO nested cards!
+ * ============================================================================ */
+
+.learn-ribbon {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 35;
+  width: min(820px, calc(100% - 36px));
+  display: grid;
+  grid-template-columns: minmax(200px, 1.15fr) minmax(220px, 1.25fr) auto;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 20px;
+  border-radius: 26px;
+  background: var(--bg-surface);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-pop);
+}
+
+/* Floating Hint & Optional Formula (fx) Disclosure Popovers above #learn-bar */
+.lb-float-pop,
+.lb-hint-pop,
+.lb-fx-pop {
+  display: none;
+  position: absolute;
+  right: 18px;
+  bottom: calc(100% + 12px);
+  max-width: 360px;
+  padding: 12px 16px;
+  border-radius: 18px;
+  background: var(--bg-surface);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-pop);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  z-index: 42;
+  transform-origin: bottom right;
+}
+.lb-float-pop.open,
+.lb-hint-pop.open,
+.lb-fx-pop.open {
+  display: block;
+}
+
+.lb-fx-pop {
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.lb-fx-title {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+}
+
+/* Left Story Zone (Pips + 1 Warm Short Line) */
+.lb-story,
+.lb-task {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.lb-pips-row,
+.lb-meta {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.lb-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lb-dot {
+  width: 18px;
+  height: 5px;
+  border: none;
+  border-radius: 999px;
+  padding: 0;
+  background: var(--bg-tray-deep);
+  cursor: pointer;
+  transition: width 0.2s var(--ease-out), background-color 0.2s ease;
+}
+.lb-dot.active {
+  width: 26px;
+  background: var(--accent);
+}
+.lb-dot.done {
+  background: var(--sage);
+}
+
+.lb-step-idx {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.lb-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bg-tray-deep);
+  transition: background-color 0.2s ease, transform 0.2s var(--ease-out);
+}
+.lb-status-dot.passed {
+  background: var(--sage);
+  box-shadow: 0 0 0 4px var(--sage-soft);
+}
+
+.lb-title {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 80, "WONK" 1;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.lb-prompt,
+.lb-sub {
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+.lb-prompt.passed,
+.lb-sub.passed {
+  color: var(--sage);
+  font-weight: 600;
+}
+
+/* Center Tactile Widget & Glowing Sweet-Spot Meter */
+.lb-play,
+.lb-center {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+
+.lb-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.lb-ctrl {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lb-ctrl.is-fader {
+  flex: 1;
+  min-width: 160px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.lb-fader-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.lb-ctrl-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.lb-ctrl-val {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Visual Glowing Sweet-Spot Meter (with cute star marker!) */
+.lb-meter {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.lb-meter-track {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--bg-tray);
+}
+
+.lb-meter-zone {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  border-radius: 999px;
+  background: var(--sage-soft);
+  border: 1.5px solid var(--sage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lb-meter-star {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 13px;
+  height: 13px;
+  color: var(--honey);
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 1px 2px rgba(74, 50, 28, 0.18));
+}
+.lb-meter-star svg { width: 100%; height: 100%; }
+
+.lb-meter-danger {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 999px 999px 0;
+  background: var(--blush-soft);
+}
+
+.lb-meter-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  border-radius: 999px;
+  background: var(--honey);
+  transition: width 0.06s linear, background-color 0.2s ease;
+}
+.lb-meter-bar.good {
+  background: var(--sage);
+  box-shadow: 0 0 10px var(--sage-soft);
+}
+.lb-meter-bar.danger {
+  background: var(--blush);
+  box-shadow: 0 0 10px var(--blush-soft);
+}
+
+.lb-meter-needle {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-surface-elev);
+  border: 2.5px solid var(--honey);
+  box-shadow: 0 2px 5px rgba(74, 50, 28, 0.22);
+  transform: translate(-50%, -50%);
+  transition: left 0.06s linear, border-color 0.2s ease;
+}
+.lb-meter-needle.good { border-color: var(--sage); }
+.lb-meter-needle.danger { border-color: var(--blush); }
+
+.lb-meter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11.5px;
+}
+
+.lb-meter-val {
+  font-weight: 600;
+  color: var(--ink);
+}
+.lb-meter-val.good { color: var(--sage); }
+.lb-meter-val.danger { color: var(--blush); }
+
+.lb-meter-target {
+  color: var(--ink-muted);
+  font-size: 11px;
+}
+
+/* Lab 6 Compact 4-Chip Binary Truth Strip */
+.lb-truth {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.tt-cell {
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: var(--bg-tray);
+  font-size: 11.5px;
+  color: var(--ink-muted);
+  transition: background-color 0.16s ease, color 0.16s ease, transform 0.16s ease;
+}
+.tt-cell.tested {
+  background: var(--sage-soft);
+  color: var(--sage);
+}
+.tt-cell.active {
+  background: var(--ink);
+  color: var(--ink-inv);
+  font-weight: 600;
+}
+
+/* Right Action Cluster inside Learn Ribbon */
+.lb-cta,
+.lb-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.lb-next-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 999px;
+  background: var(--bg-tray);
+  color: var(--ink-muted);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: default;
+  white-space: nowrap;
+}
+.lb-next-btn svg {
+  width: 15px;
+  height: 15px;
+}
+.lb-next-btn.ready {
+  background: var(--accent);
+  color: #FFFFFF;
+  cursor: pointer;
+  box-shadow: 0 6px 18px var(--accent-soft);
+}
+.lb-next-btn.ready:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1.5px);
+}
+
+.lb-util-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lb-mini-btn,
+.lb-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 8px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-muted);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.lb-mini-btn:hover,
+.lb-link:hover {
+  background: var(--bg-hover);
+  color: var(--ink);
+}
+.lb-mini-btn.active {
+  background: var(--honey-soft);
+  color: var(--ink);
+}
+.lb-mini-btn.fx-btn {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  padding: 0 9px;
+  background: var(--bg-tray);
+  color: var(--ink-soft);
+}
+.lb-mini-btn.fx-btn.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Learn Quiet Bottom-Left Play & Fit Mini-Pill */
+.learn-corner {
+  position: absolute;
+  left: 18px;
+  bottom: 22px;
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-pill);
+}
+
+/* ============================================================================
+ * FLOATING HOVER PROBE HUD, DIAGNOSTICS & TOAST
+ * ============================================================================ */
+
+.hud-probe {
+  position: absolute;
+  top: 72px;
+  left: 18px;
+  z-index: 25;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--hairline);
+  box-shadow: var(--shadow-pill);
+  font-size: 11.5px;
+  color: var(--ink);
+  pointer-events: none;
+  transition: left 0.22s var(--ease-out);
+}
+[data-mode="studio"] #parts-panel.open ~ #hud-probe {
+  left: 256px;
+}
+.hud-probe .h-tag { color: var(--accent); font-weight: 700; }
+.hud-probe .h-pos { color: var(--sage); font-weight: 600; }
+.hud-probe .h-neg { color: var(--blush); font-weight: 600; }
+.hud-probe .h-dim { color: var(--ink-muted); }
+
+.hud-diag {
+  position: absolute;
+  top: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 26;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--honey);
+  box-shadow: var(--shadow-pill);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.toast-pill {
+  position: absolute;
+  bottom: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--ink-inv);
+  box-shadow: var(--shadow-pop);
+  font-size: 12.5px;
+  font-weight: 600;
+  pointer-events: none;
+}
+[data-mode="learn"] .toast-pill {
+  bottom: 132px;
+}
+
+/* ============================================================================
+ * COLLAPSIBLE WARM INSTRUMENT SHELF (#instrument-drawer)
+ * ============================================================================ */
+
+.inst-shelf {
+  height: 224px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--hairline);
+  box-shadow: 0 -10px 30px rgba(74, 50, 28, 0.07);
+  flex-shrink: 0;
+  z-index: 40;
+}
+
+.shelf-resizer {
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: ns-resize;
+  background: transparent;
+}
+.resizer-grip {
+  width: 38px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--hairline-strong);
+  transition: background-color 0.16s ease, width 0.16s ease;
+}
+.shelf-resizer:hover .resizer-grip {
+  background: var(--accent);
+  width: 52px;
+}
+
+.inst-head {
+  height: 42px;
+  min-height: 42px;
+  padding: 0 14px 4px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.inst-tabs {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--bg-tray);
+  gap: 2px;
+}
+
+.itab {
+  height: 28px;
+  padding: 0 13px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.itab:hover { color: var(--ink); }
+.itab.active {
+  background: var(--bg-surface-elev);
+  color: var(--ink);
+  box-shadow: 0 1px 5px rgba(74, 50, 28, 0.10);
+}
+
+.inst-ctrls {
+  display: none;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.inst-ctrls.active { display: flex; }
+
+.scope-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  font-size: 11.5px;
+}
+
+.scope-ch-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--bg-tray);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.ch-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ch-col);
+}
+.ch-lbl { font-weight: 700; color: var(--ink); }
+.ch-val { color: var(--ink-soft); }
+
+.inst-summary {
+  font-size: 11.5px;
+  color: var(--ink-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ctrl-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.inst-body {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  background: var(--bg-canvas);
+}
+.inst-pane {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.inst-pane.active { display: block; }
+.inst-pane canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Airy Warm Nodes Shelf (Zero rigid table borders!) */
+.nodes-pane {
+  overflow-y: auto;
+  padding: 12px 16px;
+}
+.nodes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 8px;
+}
+.node-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 13px;
+  border-radius: 13px;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-tile);
+  font-size: 12px;
+}
+.node-card .n-name { color: var(--ink-soft); font-weight: 600; }
+.node-card .n-val { font-weight: 600; color: var(--ink); }
+.node-card .n-val.pos { color: var(--sage); }
+.node-card .n-val.neg { color: var(--blush); }
+
+.spice-pane {
+  overflow: auto;
+  padding: 14px 18px;
+  user-select: text;
+}
+.spice-code {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink);
+  white-space: pre;
+}
+
+/* ============================================================================
+ * WARM PAPER MODALS - Quick Command (#cmd-overlay) & Shortcuts (#help-overlay)
+ * ============================================================================ */
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 115;
+  background: var(--scrim);
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12vh 16px 24px;
+}
+.modal-overlay.open { display: flex; }
+
+.cmd-sheet,
+.help-sheet {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--hairline);
+  border-radius: 24px;
+  box-shadow: var(--shadow-pop);
+  overflow: hidden;
+}
+.cmd-sheet { max-width: 480px; }
+.help-sheet { max-width: 520px; }
+
+.cmd-top {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--hairline);
+}
+.cmd-ico {
+  width: 16px;
+  height: 16px;
+  color: var(--ink-muted);
+  display: inline-flex;
+}
+.cmd-ico svg { width: 100%; height: 100%; }
+
+.cmd-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  user-select: text;
+}
+.cmd-input::placeholder { color: var(--ink-muted); }
+
+.cmd-results {
+  max-height: 330px;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cmd-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 13px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+.cmd-row:hover,
+.cmd-row.selected {
+  background: var(--bg-hover);
+}
+.cmd-row.selected {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+.cmd-row-sym {
+  width: 24px;
+  height: 20px;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cmd-row-sym svg { width: 100%; height: 100%; }
+.cmd-row-main { flex: 1; }
+.cmd-row-cat { font-size: 11px; color: var(--ink-muted); }
+
+.help-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.help-title {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 80, "WONK" 1;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.help-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 16px 20px 22px;
+}
+
+.help-cat {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.hk-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5.5px 0;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+/* ============================================================================
+ * LIVING MOTION & SPRING BLOOM ANIMATIONS (Strictly Motion-Safe!)
+ * ============================================================================ */
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes popBloom {
+    0% { opacity: 0; transform: translateY(-6px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes popBloomCenter {
+    0% { opacity: 0; transform: translate(-50%, -6px) scale(0.95); }
+    100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  }
+
+  @keyframes popBloomUp {
+    0% { opacity: 0; transform: translateY(8px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes sheetGlide {
+    0% { opacity: 0; transform: translateY(-10px) scale(0.97); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes bulbBreathe {
+    0%, 100% { opacity: 0.72; transform: scale(0.96); }
+    50% { opacity: 1; transform: scale(1.06); }
+  }
+
+  @keyframes fireflyFloat {
+    0%, 100% { transform: translate(0, 0) scale(0.92); opacity: 0.65; }
+    50% { transform: translate(6px, -2.5px) scale(1.18); opacity: 1; }
+  }
+
+  @keyframes twinklePop {
+    0%, 100% { opacity: 0.35; transform: scale(0.82) rotate(0deg); }
+    50% { opacity: 0.95; transform: scale(1.12) rotate(12deg); }
+  }
+
+  @keyframes stampReady {
+    0% { transform: scale(0.92); }
+    100% { transform: scale(1); }
+  }
+
+  .atelier-pop.open,
+  .flat-menu.open {
+    animation: popBloom 0.32s ease-out both;
+    animation-timing-function: var(--ease-spring);
+  }
+
+  .speed-pop.open {
+    animation: popBloomCenter 0.32s ease-out both;
+    animation-timing-function: var(--ease-spring);
+  }
+
+  .lb-float-pop.open,
+  .lb-hint-pop.open,
+  .lb-fx-pop.open {
+    animation: popBloomUp 0.28s ease-out both;
+    animation-timing-function: var(--ease-spring);
+  }
+
+  .inspector-paper.open {
+    animation: popBloom 0.28s ease-out both;
+    animation-timing-function: var(--ease-spring);
+  }
+
+  .modal-overlay.open .cmd-sheet,
+  .modal-overlay.open .help-sheet {
+    animation: sheetGlide 0.28s ease-out both;
+    animation-timing-function: var(--ease-spring);
+  }
+
+  .lb-next-btn.ready {
+    animation: stampReady 0.36s ease-out both;
+    animation-timing-function: var(--ease-spring);
+  }
+
+  .vig-halo {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: bulbBreathe 3.4s ease-in-out infinite;
+  }
+
+  .vig-spark {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: fireflyFloat 2.8s ease-in-out infinite;
+  }
+  .vig-spark.s2 { animation-delay: 0.55s; }
+  .vig-spark.s3 { animation-delay: 1.1s; animation-direction: reverse; }
+  .vig-spark.s4 { animation-delay: 1.65s; animation-direction: reverse; }
+  .vig-spark.s5 { animation-delay: 2.1s; }
+
+  .vig-twinkle {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: twinklePop 2.6s ease-in-out infinite;
+  }
+  .vig-twinkle.t2 { animation-delay: 0.85s; }
+  .vig-twinkle.t3 { animation-delay: 1.5s; }
+}
+
+/* ============================================================================
+ * RESPONSIVE SAFEGUARDS
+ * ============================================================================ */
+
+@media (max-width: 1120px) {
+  .brand-word { display: none; }
+  .hide-md { display: none !important; }
+  .circuit-trigger { max-width: 150px; }
+  .chapter-name, .lab-name { max-width: 130px; }
+}
+
+@media (max-width: 900px) {
+  .learn-ribbon {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px 16px;
+    bottom: 12px;
+  }
+  .lb-cta,
+  .lb-actions {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .learn-corner {
+    display: none;
+  }
+  .parts-tray {
+    width: 204px;
+  }
+}
+
+@media (max-width: 640px) {
+  .welcome-portals {
+    grid-template-columns: 1fr;
+  }
+  .atelier-top {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    gap: 6px;
+  }
+  .dock-lbl {
+    display: none;
+  }
+  .help-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================================
+ * FORCED COLORS / HIGH CONTRAST SAFETY FALLBACK
+ * ============================================================================ */
+
+@media (forced-colors: active) {
+  .top-cluster,
+  .atelier-pop,
+  .parts-tray,
+  .part-cell,
+  .inspector-paper,
+  .tool-dock,
+  .learn-ribbon,
+  .learn-corner,
+  .portal-card,
+  .cmd-sheet,
+  .help-sheet,
+  .inst-shelf,
+  .node-card {
+    border: 1.5px solid CanvasText !important;
+    box-shadow: none !important;
+  }
+
+  .mode-opt.active,
+  .dock-btn.active,
+  .cad-btn.active,
+  .lb-next-btn.ready,
+  .atelier-btn.primary,
+  .hw-btn.primary,
+  .seg-opt.active,
+  .itab.active,
+  .chapter-stone.active {
+    background: Highlight !important;
+    color: HighlightText !important;
+    border: 1.5px solid Highlight !important;
+  }
+
+  .lb-meter-track,
+  .lb-meter-zone,
+  .lb-meter-bar {
+    border: 1px solid CanvasText !important;
+  }
+
+  :focus-visible {
+    outline: 2.5px solid Highlight !important;
+  }
+}
